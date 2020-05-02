@@ -39,4 +39,23 @@ public class BoardController {
 	public void read(@RequestParam("bno")int bno, Model model) throws Exception{
 		model.addAttribute(service.read(bno));//READ Service call
 	}
+	
+	@RequestMapping(value="/modify", method = RequestMethod.GET)
+	public void modifyGET(int bno, Model model) throws Exception{
+		model.addAttribute(service.read(bno));//READ before modify
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception{
+		service.modify(board);//Call modify service
+		return "redirect:/listAll";//return to listAll page after Run
+	}
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String removePOST(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
+		service.remove(bno);//Call remove service
+		return "redirect:/listAll";
+	}
+	
+	
 }
