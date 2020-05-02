@@ -38,8 +38,8 @@ public class BoardDaoImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> listALL() throws Exception {
-		return session.selectList(namespace+".listALL");
+	public List<BoardVO> listAll() throws Exception {
+		return session.selectList(namespace+".listAll");
 	}
 
 }
