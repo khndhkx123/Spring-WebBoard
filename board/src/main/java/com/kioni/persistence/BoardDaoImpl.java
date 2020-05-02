@@ -1,0 +1,45 @@
+package com.kioni.persistence;
+
+import java.util.List;
+
+import javax.inject.Inject;//@Inject
+
+import org.apache.ibatis.session.SqlSession;//SqlSession
+import org.springframework.stereotype.Repository;//@Repository
+
+import com.kioni.domain.BoardVO;
+
+@Repository
+public class BoardDaoImpl implements BoardDAO {
+	
+	@Inject
+	private SqlSession session;
+	
+	private static String namespace = "com.kioni.mapper.BoardMapper";
+
+	@Override
+	public void create(BoardVO vo) throws Exception {
+		session.insert(namespace+".create", vo);
+	}
+
+	@Override
+	public BoardVO read(Integer bno) throws Exception {
+		return session.selectOne(namespace+".read", bno);
+	}
+
+	@Override
+	public void update(BoardVO vo) throws Exception {
+		session.update(namespace+".update", vo);
+	}
+
+	@Override
+	public void delete(Integer bno) throws Exception {
+		session.delete(namespace+".delete", bno);
+	}
+
+	@Override
+	public List<BoardVO> listALL() throws Exception {
+		return session.selectList(namespace+".listALL");
+	}
+
+}
