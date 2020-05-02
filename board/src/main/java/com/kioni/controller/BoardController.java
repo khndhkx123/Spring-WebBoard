@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;//@Controller
 import org.springframework.ui.Model;//model.addAttribute
 import org.springframework.web.bind.annotation.RequestMapping;//@RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod;//@RequestMethod
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;//@RedirectAttr
 
 import com.kioni.domain.BoardVO;
@@ -32,5 +33,10 @@ public class BoardController {
 	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception{
 		service.regist(board);//Call regist service
 		return "redirect:/listAll";//After POST, return to listAll page
+	}
+	
+	@RequestMapping(value="/read", method = RequestMethod.GET)
+	public void read(@RequestParam("bno")int bno, Model model) throws Exception{
+		model.addAttribute(service.read(bno));//READ Service call
 	}
 }
