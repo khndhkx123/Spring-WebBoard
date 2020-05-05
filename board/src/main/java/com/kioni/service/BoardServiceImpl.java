@@ -6,7 +6,7 @@ import javax.inject.Inject;//@Inject
 
 import org.springframework.stereotype.Service;//@Service
 
-import com.kioni.domain.BoardVO;
+import com.kioni.domain.*;
 import com.kioni.persistence.BoardDAO;
 
 @Service
@@ -39,6 +39,16 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		return dao.listAll();
+	}
+	
+	@Override
+	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
+	}
+	
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		return dao.countPaging(cri);
 	}
 
 }
