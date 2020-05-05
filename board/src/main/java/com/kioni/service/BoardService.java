@@ -9,7 +9,6 @@ public interface BoardService {
 	public BoardVO read(Integer bno) throws Exception;
 	public void modify(BoardVO board) throws Exception;
 	public void remove(Integer bno) throws Exception;
-	public List<BoardVO> listAll() throws Exception;
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception; // For calculate Paging
 	public int listCountCriteria(Criteria cri) throws Exception; // for DB data counting
 }

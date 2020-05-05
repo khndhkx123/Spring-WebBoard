@@ -44,11 +44,6 @@ public class BoardDaoImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> listAll() throws Exception {
-		return session.selectList(namespace+".listAll");
-	}
-	
-	@Override
 	public List<BoardVO> listPage(int page) throws Exception {
 		if(page <= 0) page = 1;
 		page = (page-1)*10;

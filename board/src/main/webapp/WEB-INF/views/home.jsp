@@ -8,7 +8,7 @@
 </head>
 
 <!-- GET will action listAll function -->
-<form action="listAll" method="get">
+<form action="listPage" method="get">
 	<body>
 
 		<!-- ADD Button -->
