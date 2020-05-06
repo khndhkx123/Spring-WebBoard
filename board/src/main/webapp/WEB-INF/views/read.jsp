@@ -28,7 +28,7 @@
 
 			<button type="submit" formaction="modify" formmethod="get">수정</button>
 			<button type="submit" formaction="remove" formmethod="post">삭제</button>
-			<button type="submit" formaction="listPage" formmethod="get">목록</button>
+			<button type="submit" formaction="list" formmethod="get">목록</button>
 	</body>
 </form>
 </html>

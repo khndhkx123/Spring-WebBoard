@@ -13,53 +13,61 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;//@Redirec
 import com.kioni.domain.*;
 import com.kioni.service.BoardService;
 
-@Controller//It is Controller
-@RequestMapping(value = "/")//Access Addr(root)
+@Controller // It is Controller
+@RequestMapping(value = "/") // Access Addr(root)
 public class BoardController {
-	
+
 	@Inject
-	private BoardService service;//Call service
-	
+	private BoardService service;// Call service
+
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
 	public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		model.addAttribute("list", service.listCriteria(cri)); // JSP에 계산된 페이징 출력
-	    PageMaker pageMaker = new PageMaker(); // 객체생성
-	    pageMaker.setCri(cri); // setCri 메소드 사용
-	    pageMaker.setTotalCount(service.listCountCriteria(cri)); // 전체 게시글 갯수 카운트
-	    model.addAttribute("pageMaker", pageMaker);
+		PageMaker pageMaker = new PageMaker(); // 객체생성
+		pageMaker.setCri(cri); // setCri 메소드 사용
+		pageMaker.setTotalCount(service.listCountCriteria(cri)); // 전체 게시글 갯수 카운트
+		model.addAttribute("pageMaker", pageMaker);
 	}
-	
-	@RequestMapping(value="/regist", method = RequestMethod.GET)
-	public void registerGET(BoardVO board, Model model) throws Exception{
-		
+
+	@RequestMapping(value = "/regist", method = RequestMethod.GET)
+	public void registerGET(BoardVO board, Model model) throws Exception {
+
 	}
-	
-	@RequestMapping(value="/regist", method = RequestMethod.POST)
-	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception{
-		service.regist(board);//Call regist service
-		return "redirect:/listPage";//After POST, return to listAll page
+
+	@RequestMapping(value = "/regist", method = RequestMethod.POST)
+	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+		service.regist(board);// Call regist service
+		return "redirect:/listPage";// After POST, return to listAll page
 	}
-	
-	@RequestMapping(value="/read", method = RequestMethod.GET)
-	public void read(@RequestParam("bno")int bno, Model model) throws Exception{
-		model.addAttribute(service.read(bno));//READ Service call
+
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+		model.addAttribute(service.read(bno));// READ Service call
 	}
-	
-	@RequestMapping(value="/modify", method = RequestMethod.GET)
-	public void modifyGET(int bno, Model model) throws Exception{
-		model.addAttribute(service.read(bno));//READ before modify
+
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void modifyGET(int bno, Model model) throws Exception {
+		model.addAttribute(service.read(bno));// READ before modify
 	}
-	
+
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception{
-		service.modify(board);//Call modify service
-		return "redirect:/listPage";//return to listAll page after Run
+	public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+		service.modify(board);// Call modify service
+		return "redirect:/listPage";// return to listAll page after Run
 	}
-	
+
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-	public String removePOST(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
-		service.remove(bno);//Call remove service
+	public String removePOST(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+		service.remove(bno);// Call remove service
 		return "redirect:/listPage";
-	}	
-	
+	}
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		model.addAttribute("list", service.listSearchCriteria(cri)); // 전체목록에 검색페이징 기능+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listSearchCount(cri));// 전체목록에 검색페이징 카운트+
+		model.addAttribute("pageMaker", pageMaker);
+	}
 }

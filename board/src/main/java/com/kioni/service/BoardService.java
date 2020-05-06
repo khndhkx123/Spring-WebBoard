@@ -11,4 +11,6 @@ public interface BoardService {
 	public void remove(Integer bno) throws Exception;
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception; // For calculate Paging
 	public int listCountCriteria(Criteria cri) throws Exception; // for DB data counting
+	public List<BoardVO> listSearchCriteria(SearchCriteria cri)  throws Exception;
+	public int listSearchCount(SearchCriteria cri) throws Exception;
 }
