@@ -52,6 +52,7 @@
 				<a href="listPage${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
 			</c:if> <br>
 			<button type="submit">글쓰기</button>
+			<button type="submit" formaction="list" formmethod="get">검색</button>
 	</body>
 </form>
 </html>

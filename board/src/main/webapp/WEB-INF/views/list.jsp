@@ -29,6 +29,7 @@
 			<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
 			제목 + 내용 + 작성자</option>
 	</select>
+	
 	<input type="text" name='keyword' id="keywordInput"
 		value='${cri.keyword }'>
 	<button type="button" id='searchBtn'>검색</button>
@@ -77,6 +78,8 @@
 	</c:if>
 	<br>
 	<button id="newBtn">글쓰기</button>
+	<button id="Rtnlist">목록으로 돌아가기</button>
+	
 	<script type="text/javascript"
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript">
@@ -98,8 +101,10 @@
 					$('#newBtn').on("click", function(evt) {
 						self.location = "regist";
 					});
+					$('#Rtnlist').on("click", function(evt) {
+						self.location = "listPage";
+					});
 				});
 	</script>
-
 </body>
 </html>
