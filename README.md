@@ -13,3 +13,6 @@ https://spring.io/guides/gs/accessing-data-mysql/
 
 (JSP)HTML table sampls :
 https://coding-factory.tistory.com/184
+
+
+After dependency ADDED at STS4 : Run as -> Maven clean -> Maven -> Update Project...
