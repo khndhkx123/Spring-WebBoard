@@ -7,6 +7,9 @@ JAVA-Spring WebBoard
 MVN POM.XML dependency :
 https://mvnrepository.com/
 
+Mybatis for Mapper.xml :
+https://mybatis.org/mybatis-3/ko/getting-started.html
+
 HTML samples :
 https://www.w3schools.com/html/html_examples.asp
 
