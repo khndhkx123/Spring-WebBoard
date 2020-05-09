@@ -24,4 +24,22 @@ public class BoardController {
 		int result = boardService.test1();
 		return "";
 	}
+	
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public String moveList() {
+		logger.info("move list");
+		return "board/list";
+	}
+	
+	@RequestMapping(value="/write", method=RequestMethod.GET)
+	public String moveWrite() {
+		logger.info("move write");
+		return "board/write";
+	}
+	
+	@RequestMapping(value="/view", method=RequestMethod.GET)
+	public String moveView() {
+		logger.info("move view");
+		return "board/view";
+	}
 }
