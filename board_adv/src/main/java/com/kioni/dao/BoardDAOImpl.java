@@ -11,4 +11,9 @@ public class BoardDAOImpl implements BoardDAO {
 	@Inject
 	private SqlSession sqlSession;
 	private static final String namespace = "com.kioni.mappers.BoardMapper";
+	
+	@Override
+	public int test1() {
+		return sqlSession.insert(namespace+".test1");
+	}
 }

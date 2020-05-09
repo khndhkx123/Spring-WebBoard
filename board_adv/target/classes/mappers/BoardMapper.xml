@@ -5,4 +5,9 @@
   
   <mapper namespace="com.kioni.mappers.BoardMapper">
   
+  <insert id="test1">
+  insert into board_adv(no)
+  values(1)
+  </insert>
+  
   </mapper>

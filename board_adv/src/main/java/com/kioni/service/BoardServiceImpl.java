@@ -10,4 +10,9 @@ import com.kioni.dao.BoardDAO;
 public class BoardServiceImpl implements BoardService{
 	@Inject
 	private BoardDAO boardDAO;
+	
+	@Override
+	public int test1() {
+		return boardDAO.test1();
+	}
 }
