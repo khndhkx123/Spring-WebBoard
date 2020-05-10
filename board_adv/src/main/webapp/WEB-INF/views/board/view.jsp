@@ -11,6 +11,24 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- !!!!! EXTERNAL CSS !!!!! -->
 
+<script>
+	$(document).ready(function(){
+		$('.list').on('click', function(){
+			location.href='/board_adv/list';
+		});
+
+		$('.writereply').on('click', function(){
+			var no = $('#no').val();
+			var gNo = $('#gNo').val();
+			var step = $('#step').val();
+			var indent = $('#indent').val();
+			location.href='/board_adv/write?no='+no+'&gNo='+gNo+'&step='+step+'&indent='+indent;
+		});
+
+	});
+
+</script>
+
 </head>
 <body>
 
@@ -40,7 +58,7 @@
 			<div class="row mt-1">
 				<div class="col-2">kioni</div>
 				<div class="col-3">하하</div>
-				<div class="col-3">2020-05-09</div>				
+				<div class="col-3">2020-05-09</div>
 			</div>
 		</div>
 		

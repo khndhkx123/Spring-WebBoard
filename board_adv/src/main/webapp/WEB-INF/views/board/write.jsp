@@ -23,7 +23,7 @@
 			<input type="hidden" name="indent" value="${board.indent}">
 			<input type="text" class="form-control w-50 mb-sm-1" name="id" placeholder="작성자">
 			<input type="text" class="form-control w-50 mb-sm-1" name="title" placeholder="제목">
-			<textarea rows="10" class="form-control w-50 mb-sm-1" name="content"></textarea>
+			<textarea rows="10" class="form-control w-50 mb-sm-1" name="content" placeholder="글내용......"></textarea>
 			<button type="submit" class="btn btn-primary" style="margin-left: 45%;">등록</button>
 		</form>
 		

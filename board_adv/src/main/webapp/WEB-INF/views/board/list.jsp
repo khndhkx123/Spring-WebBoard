@@ -49,7 +49,13 @@
 			<c:forEach items="${list }" var="list">
 				<tr>
 					<td>${list.no }</td>
-					<td class="move" style="cursor: pointer;" data="view">${list.title }</td><!-- 클릭 가능하게 만든다 -->
+					<td class="move text-left" style="cursor: pointer;" data="view"><!-- 클릭 가능하게 만든다 -->
+					<c:if test="${list.indent > 0 }">
+						<c:set value="${list.indent * 10 }" var="width"/>
+						<img src="/resources/images/blank.png" width="${width }">
+						<span>┗━</span>
+					</c:if>
+					${list.title }</td>
 					<td>${list.id }</td>
 					<td>${list.bDate }</td>
 					<td>${list.count }</td>

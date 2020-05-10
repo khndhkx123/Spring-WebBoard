@@ -12,6 +12,7 @@
   
   <select id="list" resultType="com.kioni.domain.BoardVO">
   	select no, id, title, content, gNo, step, indent, count, date_format(bDate, '%Y-%m-%d') as bDate from board_adv
+  	order by gNo DESC, step ASC
   </select>
   
   <select id="view" resultType="com.kioni.domain.BoardVO">
@@ -25,7 +26,7 @@
   </insert>
   
   <update id="replyShape">
-  	update from board_adv set step = step+1
+  	update board_adv set step = step+1
   	where gNo=#{gNo} AND step > #{step}
   </update>
   
