@@ -28,6 +28,9 @@ public class BoardController {
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String moveList() {
 		logger.info("move list");
+		
+		
+		
 		return "board/list";
 	}
 	
@@ -40,6 +43,18 @@ public class BoardController {
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String moveView() {
 		logger.info("move view");
+		
+		
+		
 		return "board/view";
+	}
+	
+	@RequestMapping(value="write",method=RequestMethod.GET)
+	public String writePro() {
+		logger.info("writePro");
+		
+		
+		
+		return "redirect:/board/list";
 	}
 }
