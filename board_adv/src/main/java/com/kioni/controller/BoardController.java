@@ -46,10 +46,18 @@ public class BoardController {
 		return "board/view";
 	}
 
-	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String writePro(BoardVO boardVO) {
 		logger.info("writePro");
+		logger.info(boardVO.toString());
 		int result = boardService.write(boardVO);
 		return "redirect:/board/list";
+	}
+	
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	public String movewrite(Model model, BoardVO boardVO) {
+		logger.info("move write");
+		model.addAttribute("board", boardVO);
+		return "board/write";
 	}
 }

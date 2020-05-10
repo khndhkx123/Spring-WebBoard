@@ -11,6 +11,21 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- !!!!! EXTERNAL CSS !!!!! -->
 
+<script>
+	$(document).ready(function() {
+		$('.move').on('click', function() {
+			var data = $(this).attr('data');
+			if(data == 'write'){
+				location.href='/board_adv/write';
+			}
+			else if(data == 'view'){
+				var no = $(this).parent('tr').children('td:nth-of-type(1)').html();
+				location.href='/board_adv/view?no='+no;
+			}
+		});
+	});
+</script>
+
 </head>
 <body>
 
@@ -33,7 +48,7 @@
 		<tbody>
 			<tr>
 				<td>1</td>
-				<td style="cursor:pointer;">123</td> <!-- 클릭 가능하게 만든다 -->
+				<td class="move" style="cursor:pointer;" data="view">123</td> <!-- 클릭 가능하게 만든다 -->
 				<td>456</td>
 				<td>789</td>
 				<td>1010</td>
