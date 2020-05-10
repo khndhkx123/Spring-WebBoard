@@ -10,4 +10,28 @@
   values(1)
   </insert>
   
+  <select id="list" resultType="com.kioni.domain.BoardVO">
+  	select no, id, title, content, gNo, step, indent, count, date_format(bDate, '%Y-%m-%d') as bDate from board_adv
+  </select>
+  
+  <select id="view" resultType="com.kioni.domain.BoardVO">
+  	select no, id, title, content, gNo, step, indent, count, date_format(bDate, '%Y-%m-%d') as bDate from board_adv
+  	where no = #{no}
+  </select>
+  
+  <insert id="write">
+  	insert into board_adv (no, id, title, content, gNo, step, indent, count, bDate)
+  	values ((select * from (select max(no)+1 from board_adv) next), #{id}, #{title}, #{content}, board_no.currval, 0,0,0, now())
+  </insert>
+  
+  <update id="replyShape">
+  	update from board_adv set step = step+1
+  	where gNo=#{gNo} AND step > #{step}
+  </update>
+  
+  <insert id="replyWrite">
+  	insert into board_adv (no, id, title, content, gNo, step, indent, count, bDate)
+  	values ((select * from (select max(no)+1 from board_adv) next), #{id}, #{title}, #{content}, #{gNo}, #{step}+1, #{indent}+1, 0, now())
+  </insert>
+  
   </mapper>
