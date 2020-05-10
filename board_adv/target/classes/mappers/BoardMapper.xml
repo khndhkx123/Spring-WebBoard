@@ -21,7 +21,7 @@
   
   <insert id="write">
   	insert into board_adv (no, id, title, content, gNo, step, indent, count, bDate)
-  	values ((select * from (select max(no)+1 from board_adv) next), #{id}, #{title}, #{content}, board_no.currval, 0,0,0, now())
+  	values ((select * from (select max(no)+1 from board_adv) next), #{id}, #{title}, #{content}, (select * from (select max(gNo)+1 from board_adv) next), 0, 0, 0, now())
   </insert>
   
   <update id="replyShape">

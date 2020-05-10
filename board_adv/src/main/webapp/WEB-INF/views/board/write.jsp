@@ -17,10 +17,10 @@
 	<div class="container">
 		<h2 class="mt-sm-5">게시판 작성</h2>
 		<form action="/board_adv/write" method="POST">
-			<input type="hidden" name="no" value="${board_adv.no}">
-			<input type="hidden" name="gNo" value="${board_adv.gNo}">
-			<input type="hidden" name="step" value="${board_adv.step}">
-			<input type="hidden" name="indent" value="${board_adv.indent}">
+			<input type="hidden" name="no" value="${board.no}">
+			<input type="hidden" name="gNo" value="${board.gNo}">
+			<input type="hidden" name="step" value="${board.step}">
+			<input type="hidden" name="indent" value="${board.indent}">
 			<input type="text" class="form-control w-50 mb-sm-1" name="id" placeholder="작성자">
 			<input type="text" class="form-control w-50 mb-sm-1" name="title" placeholder="제목">
 			<textarea rows="10" class="form-control w-50 mb-sm-1" name="content"></textarea>

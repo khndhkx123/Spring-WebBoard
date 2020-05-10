@@ -51,13 +51,13 @@ public class BoardController {
 		logger.info("writePro");
 		logger.info(boardVO.toString());
 		int result = boardService.write(boardVO);
-		return "redirect:/board/list";
+		return "redirect:/board_adv/list"; //redirect = actual uri !!
 	}
 	
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String movewrite(Model model, BoardVO boardVO) {
 		logger.info("move write");
 		model.addAttribute("board", boardVO);
-		return "board/write";
+		return "board/write"; //return = package board/write.jsp
 	}
 }

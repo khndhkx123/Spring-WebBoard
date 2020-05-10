@@ -58,13 +58,13 @@
 	
 	<ul class="pagination" style="margin-left: 42%;"><!-- 클릭 가능한 페이지 버튼 -->
 		<li class="page-item">
-			<a class="page-link" herf="#">1</a><!-- 각 버튼 -->
+			<a class="page-link" href="#">1</a><!-- 각 버튼 -->
 		</li> 
 		<li class="page-item">
-			<a class="page-link" herf="#">2</a>
+			<a class="page-link" href="#">2</a>
 		</li>
 		<li class="page-item active"><!-- active : 파란불 계속 띄우기 -->
-			<a class="page-link" herf="#">3</a>
+			<a class="page-link" href="#">3</a>
 		</li>
 	</ul>
 
