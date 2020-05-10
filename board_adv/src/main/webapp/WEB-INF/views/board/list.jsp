@@ -44,15 +44,17 @@
 				<td>조회수</td>
 			</tr>
 		</thead>
-		
+
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td class="move" style="cursor:pointer;" data="view">123</td> <!-- 클릭 가능하게 만든다 -->
-				<td>456</td>
-				<td>789</td>
-				<td>1010</td>
-			</tr>
+			<c:forEach items="${list }" var="list">
+				<tr>
+					<td>${list.no }</td>
+					<td class="move" style="cursor: pointer;" data="view">${list.title }</td><!-- 클릭 가능하게 만든다 -->
+					<td>${list.id }</td>
+					<td>${list.bDate }</td>
+					<td>${list.count }</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 	

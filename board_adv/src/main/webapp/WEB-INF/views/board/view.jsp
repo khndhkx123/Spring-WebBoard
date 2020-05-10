@@ -18,13 +18,13 @@
 		<h2 class="mt-sm-5">게시판 보기</h2>
 		<button class="btn btn-primary mb-sm-2 list" style="margin-left: 39%;">목록</button>
 		<button class="btn btn-primary mb-sm-2 ml-1 writereply">답글</button>
-		<input type="hidden" id="no" value="">
-		<input type="hidden" id="gNo" value="">
-		<input type="hidden" id="step" value="">
-		<input type="hidden" id="indent" value="">
-		<input type="text" class="form-control w-50 mb-sm-1" readonly="readonly" value="">
-		<input type="text" class="form-control w-50 mb-sm-1" readonly="readonly" value="">
-		<textarea rows="10" class="form-control w-50 mb-sm-1" readonly="readonly"></textarea>
+		<input type="hidden" id="no" value="${board.no }">
+		<input type="hidden" id="gNo" value="${board.gNo }">
+		<input type="hidden" id="step" value="${board.step }">
+		<input type="hidden" id="indent" value="${board.indent }">
+		<input type="text" class="form-control w-50 mb-sm-1" readonly="readonly" value="${board.title }">
+		<input type="text" class="form-control w-50 mb-sm-1" readonly="readonly" value="${board.id }">
+		<textarea rows="10" class="form-control w-50 mb-sm-1" readonly="readonly">${board.content }</textarea>
 		
 		
 		<div class="row mt-3 ml-5">
