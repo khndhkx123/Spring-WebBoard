@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.kioni.domain.BoardVO;
+import com.kioni.domain.PageDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -22,8 +23,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> list() {
-		return sqlSession.selectList(namespace+".list");
+	public List<BoardVO> list(PageDTO page) {
+		return sqlSession.selectList(namespace+".list", page);
 	}
 
 	@Override
@@ -44,5 +45,10 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int replyWrite(BoardVO boardVO) {
 		return sqlSession.insert(namespace+".replyWrite", boardVO);
+	}
+	
+	@Override
+	public int count() {
+		return sqlSession.selectOne(namespace+".count");
 	}
 }

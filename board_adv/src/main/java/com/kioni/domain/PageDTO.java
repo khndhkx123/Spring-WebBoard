@@ -11,6 +11,16 @@ public class PageDTO {
 	private int pageBlock;
 	private int startPage;
 	private int endPage;
+	
+	public void pageInit() {
+		setPageCount(count / pageSize+ (count % pageSize == 0 ? 0 : 1));
+		setStartPage(((pageNum-1) / pageBlock)*pageBlock+1);
+		int endPage = startPage + pageBlock - 1;
+		if(endPage > pageCount) {
+			endPage = pageCount;
+		}
+		setEndPage(endPage);
+	}
 
 	public int getStartRow() {
 		return startRow;

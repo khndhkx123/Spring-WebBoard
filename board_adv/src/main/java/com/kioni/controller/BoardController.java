@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kioni.domain.BoardVO;
+import com.kioni.domain.PageDTO;
 import com.kioni.service.BoardService;
 
 @Controller
@@ -33,7 +34,14 @@ public class BoardController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String moveList(Model model, @RequestParam(value="pageNum", defaultValue="1") int pageNum) {
 		logger.info("move list");
-		List<BoardVO> list = boardService.list();
+		
+		PageDTO page = new PageDTO();
+		page.setPageNum(pageNum);
+		page.setPageBlock(3);
+		page.setPageSize(10);
+		page.setCount(boardService.count());
+		
+		List<BoardVO> list = boardService.list(page);
 		model.addAttribute("list", list);
 		return "board/list";
 	}

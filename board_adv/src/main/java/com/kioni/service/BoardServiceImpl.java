@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kioni.dao.BoardDAO;
 import com.kioni.domain.BoardVO;
+import com.kioni.domain.PageDTO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -20,8 +21,10 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> list() {
-		return boardDAO.list();
+	public List<BoardVO> list(PageDTO page) {
+		page.setStartRow((page.getPageNum()-1) * page.getPageSize() + 1);
+		page.setEndRow(page.getStartRow() + page.getPageSize() - 1);
+		return boardDAO.list(page);
 	}
 
 	@Override
@@ -39,4 +42,10 @@ public class BoardServiceImpl implements BoardService {
 			return boardDAO.replyWrite(boardVO);
 		}
 	}
+	
+	@Override
+	public int count() {
+		return boardDAO.count();
+	}
+	
 }
