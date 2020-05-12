@@ -16,11 +16,11 @@
 		$('.move').on('click', function() {
 			var data = $(this).attr('data');
 			if(data == 'write'){
-				location.href='/board_adv/write';
+				location.href='/board/write';
 			}
 			else if(data == 'view'){
 				var no = $(this).parent('tr').children('td:nth-of-type(1)').html();
-				location.href='/board_adv/view?no='+no;
+				location.href='/board/view?no='+no;
 			}
 		});
 	});

@@ -11,22 +11,22 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		<!-- DataSource For MYSQL DB ACCESS -->
+		<!-- 
 		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 			<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 			<property name="url" value="jdbc:mysql://localhost:1118/kioni_board?characterEncoding=utf8&amp;serverTimezone=UTC"></property>
 			<property name="username" value="root"></property>
 			<property name="password" value="kioni"></property>
 		</bean>
+		 -->
 		
 		<!-- IF : DataSource For Oracle DB ACCESS -->
-		<!--
 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 			<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-			<property name="url" value="jdbc:oracle:thin:@localhost:1818:xe"/>
-			<property name="username" value="root"/>
-			<property name="password" value="kioni"/>
+			<property name="url" value="jdbc:oracle:thin:@localhost:1521:kkw"/>
+			<property name="username" value="kioni"/>
+			<property name="password" value="1234"/>
 		</bean>
-		-->
 		
 		<!-- Sqlsessionfactory For Mybatis CONNECTION -->
 		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

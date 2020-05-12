@@ -14,7 +14,7 @@
 <script>
 	$(document).ready(function(){
 		$('.list').on('click', function(){
-			location.href='/board_adv/list';
+			location.href='/board/list';
 		});
 
 		$('.writereply').on('click', function(){
@@ -22,7 +22,7 @@
 			var gNo = $('#gNo').val();
 			var step = $('#step').val();
 			var indent = $('#indent').val();
-			location.href='/board_adv/write?no='+no+'&gNo='+gNo+'&step='+step+'&indent='+indent;
+			location.href='/board/write?no='+no+'&gNo='+gNo+'&step='+step+'&indent='+indent;
 		});
 
 	});

@@ -17,7 +17,7 @@ import com.kioni.domain.PageDTO;
 import com.kioni.service.BoardService;
 
 @Controller
-@RequestMapping(value = "/board_adv")
+@RequestMapping(value = "/board")
 public class BoardController {
 
 	@Inject
@@ -60,7 +60,7 @@ public class BoardController {
 		logger.info("writePro");
 		logger.info(boardVO.toString());
 		int result = boardService.write(boardVO);
-		return "redirect:/board_adv/list"; //redirect = actual uri !!
+		return "redirect:/board/list"; //redirect = actual uri !!
 	}
 	
 	@RequestMapping(value = "/write", method = RequestMethod.GET)

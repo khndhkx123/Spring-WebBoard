@@ -16,7 +16,7 @@
 
 	<div class="container">
 		<h2 class="mt-sm-5">게시판 작성</h2>
-		<form action="/board_adv/write" method="POST">
+		<form action="/board/write" method="POST">
 			<input type="hidden" name="no" value="${board.no}">
 			<input type="hidden" name="gNo" value="${board.gNo}">
 			<input type="hidden" name="step" value="${board.step}">

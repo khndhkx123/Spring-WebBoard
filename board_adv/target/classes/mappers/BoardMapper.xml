@@ -6,46 +6,46 @@
   <mapper namespace="com.kioni.mappers.BoardMapper">
   
   <insert id="test1">
-  insert into board_adv(no)
+  insert into board(no)
   values(1)
   </insert>
   
   <select id="list" resultType="com.kioni.domain.BoardVO">
-  	select A.no, A.id, A.title, A.content, A.gNo, A.step, A.indent, A.count, date_format(bDate, '%Y-%m-%d') as bDate from
-    (select @rownum := @rownum + 1 as rnum, R.* from
-		(select * from board_adv order by gNo DESC , step ASC) R
+  	select X.no, X.id, X.title, X.content, X.gNo, X.step, X.indent, X.count, to_char(X.bDate, 'yyyy-mm-dd') as bDate from
+    (select rownum as rnum, A.* from
+		(select * from board order by gNo DESC , step ASC) A
 		<![CDATA[
-			limit ${endRow}
+			where rownum <= ${endRow}
 		]]>
-	) A
+	) X
 	<!-- HERE IS THE BUG : LIMIT is OK BUT WHERE A.rnum >= ${startRow} is NOT working -->
 	<![CDATA[
-		limit ${startRow}
+		where X.rnum >= ${startRow}
 	]]>
   </select>
   
   <select id="view" resultType="com.kioni.domain.BoardVO">
-  	select no, id, title, content, gNo, step, indent, count, date_format(bDate, '%Y-%m-%d') as bDate from board_adv
+  	select no, id, title, content, gNo, step, indent, count, to_char(bDate, 'yyyy-mm-dd') as bDate from board
   	where no = #{no}
   </select>
   
   <insert id="write">
-  	insert into board_adv (no, id, title, content, gNo, step, indent, count, bDate)
-  	values ((select * from (select max(no)+1 from board_adv) next), #{id}, #{title}, #{content}, (select * from (select max(gNo)+1 from board_adv) next), 0, 0, 0, now())
+  	insert into board (no, id, title, content, gNo, step, indent, count, bDate)
+  	values (board_no.nextval, #{id}, #{title}, #{content}, board_no.currval, 0, 0, 0, sysdate)
   </insert>
   
   <update id="replyShape">
-  	update board_adv set step = step+1
+  	update board set step = step+1
   	where gNo=#{gNo} AND step > #{step}
   </update>
   
   <insert id="replyWrite">
-  	insert into board_adv (no, id, title, content, gNo, step, indent, count, bDate)
-  	values ((select * from (select max(no)+1 from board_adv) next), #{id}, #{title}, #{content}, #{gNo}, #{step}+1, #{indent}+1, 0, now())
+  	insert into board (no, id, title, content, gNo, step, indent, count, bDate)
+  	values (board_no.nextval, #{id}, #{title}, #{content}, #{gNo}, #{step}+1, #{indent}+1, 0, sysdate)
   </insert>
   
   <select id="count" resultType="int">
-  	select count(*) from board_adv
+  	select count(*) from board
   </select>
   
   </mapper>
