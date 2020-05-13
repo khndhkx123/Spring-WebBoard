@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=1.0">
 <title>게시판 작성</title>
 
 <!-- !!!!! EXTERNAL CSS !!!!! -->

@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=1.0">
 <title>게시판 리스트</title>
 
 <!-- !!!!! EXTERNAL CSS !!!!! -->
@@ -65,15 +68,24 @@
 	</table>
 	
 	<ul class="pagination" style="margin-left: 42%;"><!-- 클릭 가능한 페이지 버튼 -->
-		<li class="page-item">
-			<a class="page-link" href="#">1</a><!-- 각 버튼 -->
-		</li> 
-		<li class="page-item">
-			<a class="page-link" href="#">2</a>
-		</li>
-		<li class="page-item active"><!-- active : 파란불 계속 띄우기 -->
-			<a class="page-link" href="#">3</a>
-		</li>
+		<c:if test="${page.pageNum > page.pageBlock }">
+			<li class="page-item">
+				<a class="page-link" href="/board/list?pageNum=${page.startPage-1 }">이전</a>
+			</li>
+		</c:if>
+		
+		<c:forEach begin="${page.startPage }" end="${page.endPage }" step="1" var="i">
+			<li class="page-item
+			<c:if test="${i eq page.pageNum }">active</c:if>">
+			<a class="page-link" href="/board/list?pageNum=${i }">${i }</a>
+			</li>
+		</c:forEach>
+		
+		<c:if test="${page.endPage < page.pageCount }">
+			<li class="page-item">
+				<a class="page-link" href="/board/list?pageNum=${page.endPage+1 }">다음</a>
+			</li>
+		</c:if>
 	</ul>
 
 </body>

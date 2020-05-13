@@ -34,7 +34,6 @@ public class BoardController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String moveList(Model model, @RequestParam(value="pageNum", defaultValue="1") int pageNum) {
 		logger.info("move list");
-		
 		PageDTO page = new PageDTO();
 		page.setPageNum(pageNum);
 		page.setPageBlock(3);
@@ -43,6 +42,7 @@ public class BoardController {
 		
 		List<BoardVO> list = boardService.list(page);
 		model.addAttribute("list", list);
+		model.addAttribute("page", page);
 		return "board/list";
 	}
 	

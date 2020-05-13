@@ -52,6 +52,7 @@ public class PageDTO {
 
 	public void setCount(int count) {
 		this.count = count;
+		pageInit();
 	}
 
 	public int getPageNum() {
