@@ -3,6 +3,7 @@ package com.kioni.dao;
 import java.util.List;
 
 import com.kioni.domain.BoardVO;
+import com.kioni.domain.CommentsVO;
 import com.kioni.domain.PageDTO;
 
 public interface BoardDAO {
@@ -20,5 +21,9 @@ public interface BoardDAO {
 	int replyWrite(BoardVO boardVO);
 
 	int count();
+
+	int writeComments(CommentsVO commentsVO);
+
+	List<CommentsVO> listComments(int bNo);
 
 }

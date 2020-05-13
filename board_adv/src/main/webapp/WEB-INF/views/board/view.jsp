@@ -26,6 +26,65 @@
 			location.href='/board/write?no='+no+'&gNo='+gNo+'&step='+step+'&indent='+indent;
 		});
 
+		$('.writecomments').on('click', function(){
+			var insertData = $('[name=commentForm]').serialize();
+			$.ajax({
+				url : '/board/writeComments',
+				type : 'POST',
+				data : insertData,
+				success : function(response){
+					console.log(response);
+				},
+				error : function(){
+					console.log('error');
+				},
+				complete : function(){
+					console.log('complete');
+					$('.comments_writer').val('');
+					$('.comments_content').val('');
+					commentsList();
+				}
+			});
+		});
+
+		function commentsList(){
+			$.ajax({
+				url : '/board/listComments',
+				type : 'POST',
+				data : {
+					bNo : $('input[name=bNo]').val()
+				},
+				dataType : 'JSON',
+				success : function(response){
+					console.log(response);
+					$('.comments_list').html('');
+					$.each(response.result, function(index, item){
+						var comments = {
+								id : item.id,
+								content : item.content,
+								cDate : item.cDate
+						}
+						addComments(comments);
+					});
+				},
+				error : function(){
+					console.log('error');
+				},
+				complete : function(){
+					console.log('complete');
+				}
+			});
+		}
+
+		function addComments(comments){
+			$('.comments_list').append(
+					'<div class="row mt-1">'
+					+'<div class="col-2">'+comments.id+'</div>'
+					+'<div class="col-3">'+comments.content+'</div>'
+					+'<div class="col-3">'+comments.cDate+'</div>'
+					+'</div>'
+			);
+		}
 	});
 
 </script>
@@ -48,7 +107,7 @@
 		
 		<div class="row mt-3 ml-5">
 			<form class="form-inline" name="commentForm">
-				<input type="hidden" name="bNo" value="">
+				<input type="hidden" name="bNo" value="${board.no }">
 				<input type="text" class="w-25 comments_writer" name="id" placeholder="작성자">
 				<input type="text" class="w-50 comments_content" name="content" placeholder="내용">
 				<button type="button" class="ml-4 btn btn-danger writecomments">작성</button>
@@ -56,11 +115,13 @@
 		</div>
 		
 		<div class="comments_list">
+			<c:forEach items="${comments }" var="comments">
 			<div class="row mt-1">
-				<div class="col-2">kioni</div>
-				<div class="col-3">하하</div>
-				<div class="col-3">2020-05-09</div>
+				<div class="col-2">${comments.id }</div>
+				<div class="col-3">${comments.content }</div>
+				<div class="col-3">${comments.cDate }</div>
 			</div>
+			</c:forEach>
 		</div>
 		
 	</div>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kioni.dao.BoardDAO;
 import com.kioni.domain.BoardVO;
+import com.kioni.domain.CommentsVO;
 import com.kioni.domain.PageDTO;
 
 @Service
@@ -47,5 +48,15 @@ public class BoardServiceImpl implements BoardService {
 	public int count() {
 		return boardDAO.count();
 	}
-	
+
+	@Override
+	public int writeComments(CommentsVO commentsVO) {
+		return boardDAO.writeComments(commentsVO);
+	}
+
+	@Override
+	public List<CommentsVO> listComments(int bNo) {
+		return boardDAO.listComments(bNo);
+	}
+		
 }

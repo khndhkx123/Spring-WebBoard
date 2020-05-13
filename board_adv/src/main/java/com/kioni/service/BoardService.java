@@ -3,6 +3,7 @@ package com.kioni.service;
 import java.util.List;
 
 import com.kioni.domain.BoardVO;
+import com.kioni.domain.CommentsVO;
 import com.kioni.domain.PageDTO;
 
 public interface BoardService {
@@ -16,5 +17,9 @@ public interface BoardService {
 	int write(BoardVO boardVO);
 
 	int count();
+
+	int writeComments(CommentsVO commentsVO);
+
+	List<CommentsVO> listComments(int bNo);
 
 }

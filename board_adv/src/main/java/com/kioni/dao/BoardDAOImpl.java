@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.kioni.domain.BoardVO;
+import com.kioni.domain.CommentsVO;
 import com.kioni.domain.PageDTO;
 
 @Repository
@@ -51,4 +52,16 @@ public class BoardDAOImpl implements BoardDAO {
 	public int count() {
 		return sqlSession.selectOne(namespace + ".count");
 	}
+
+	@Override
+	public int writeComments(CommentsVO commentsVO) {
+		return sqlSession.insert(namespace + ".writeComments", commentsVO);
+	}
+
+	@Override
+	public List<CommentsVO> listComments(int bNo) {
+		return sqlSession.selectList(namespace + ".listComments", bNo);
+	}
+	
+	
 }
