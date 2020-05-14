@@ -22,7 +22,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.adullam.controller" />
-	
-	
+	<context:component-scan base-package="com.kioni.service" />
+	<context:component-scan base-package="com.kioni.dao" />	
 	
 </beans:beans>
