@@ -21,8 +21,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.adullam.controller" />
-	<context:component-scan base-package="com.kioni.service" />
-	<context:component-scan base-package="com.kioni.dao" />	
+	<context:component-scan base-package="com.adullam.controller"/>
 	
 </beans:beans>

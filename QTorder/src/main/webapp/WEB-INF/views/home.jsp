@@ -33,6 +33,9 @@
 		</nav>
 		
 		<section id="container">
+			<div id="signup">
+				<%@ include file="member/signup.jsp" %>
+			</div>
 			<div id="container_box">본문 영역</div>
 		</section>
 		

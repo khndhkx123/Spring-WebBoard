@@ -1,4 +1,4 @@
-package com.adullam.dao;
+package com.adullam.domain;
 
 public class MemberVO {
 	/*
