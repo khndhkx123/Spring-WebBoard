@@ -11,5 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into adullam_member(mb_id, mb_pw, mb_name)
 		values(#{mb_id}, #{mb_pw}, #{mb_name})
 	</insert>
+	
+	<select id="signin" resultType="com.adullam.domain.MemberVO">
+		select mb_id, mb_pw, mb_name
+		from adullam_member
+		where mb_id = #{mb_id}
+	</select>
 
 </mapper>
