@@ -10,9 +10,8 @@
 <title>주문 게시판 리스트</title>
 
 <!-- !!!!! EXTERNAL CSS !!!!! -->
-<link
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap-theme.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- !!!!! EXTERNAL CSS !!!!! -->
 
