@@ -7,13 +7,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.adullam.mappers.MemberMapper">
 
 	<!-- 회원가입 -->
-	<insert id="signup">
-		insert into adullam_member(mb_id, mb_pw, mb_name)
-		values(#{mb_id}, #{mb_pw}, #{mb_name})
+	<insert id="signup"><!-- 0 : admin, 1 : KHM, 2 : NORMAL USER -->
+		insert into adullam_member(mb_id, mb_pw, mb_name, mb_ident)
+		values(#{mb_id}, #{mb_pw}, #{mb_name}, 2)
 	</insert>
 	
 	<select id="signin" resultType="com.adullam.domain.MemberVO">
-		select mb_id, mb_pw, mb_name
+		select mb_id, mb_pw, mb_name, mb_ident
 		from adullam_member
 		where mb_id = #{mb_id}
 	</select>

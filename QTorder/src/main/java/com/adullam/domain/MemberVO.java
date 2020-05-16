@@ -6,6 +6,7 @@ public class MemberVO {
 	mb_id varchar(50) not null,
 	mb_pw varchar(100) not null,
 	mb_name varchar(30) not null,
+	mb_ident int not null,
 	primary key(mb_id)
 	);
 	*/
@@ -13,6 +14,7 @@ public class MemberVO {
 	private String mb_id;
 	private String mb_pw;
 	private String mb_name;
+	private int mb_ident;
 
 	public String getMb_id() {
 		return mb_id;
@@ -38,4 +40,11 @@ public class MemberVO {
 		this.mb_name = mb_name;
 	}
 
+	public int getMb_ident() {
+		return mb_ident;
+	}
+
+	public void setMb_ident(int mb_ident) {
+		this.mb_ident = mb_ident;
+	}
 }
