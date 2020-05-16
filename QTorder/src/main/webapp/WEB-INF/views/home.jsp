@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -32,9 +31,6 @@
 		</nav>
 		
 		<section id="container">
-			<div id="signup">
-				<%@ include file="member/signup.jsp" %>
-			</div>
 			<div id="container_box">본문 영역</div>
 		</section>
 		

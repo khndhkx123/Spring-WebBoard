@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=1.0">
 
 <ul>
 	<c:if test="${member != null}">
