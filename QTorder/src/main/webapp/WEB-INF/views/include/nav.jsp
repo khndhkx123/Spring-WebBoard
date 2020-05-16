@@ -12,10 +12,13 @@
 
 		<c:if test="${member.mb_ident == 0}">
 			<li>관리자 ${member.mb_name}님 환영합니다.</li>
+			<li>
+				<a href="/admin/index">관리자 화면</a>
+			</li>
 			<!-- 
-			<li><a href="/order/Alllist">전체주문보기</a>
-			<li><a href="/order/Alldelete">전체주문삭제</a>
-			<li><a href="/order/Addorder">주문추가</a>
+			<li><a href="/order/Alllist">전체주문보기</a></li>
+			<li><a href="/order/Alldelete">전체주문삭제</a></li>
+			<li><a href="/order/Addorder">주문추가</a></li>
 			 -->
 		</c:if>
 		
