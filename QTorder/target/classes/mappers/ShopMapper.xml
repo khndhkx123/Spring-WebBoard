@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.adullam.mappers.ShopMapper">
+
+	<!-- 쇼핑리스트 가져오기 -->
+	<select id="qtlist" resultType="com.adullam.domain.QTinfoVO">
+		select * from qt_info order by qt_no ASC
+	</select>
+
+</mapper>

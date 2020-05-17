@@ -1,0 +1,24 @@
+package com.adullam.service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import com.adullam.dao.ShopDAO;
+import com.adullam.domain.QTinfoVO;
+
+@Service
+public class ShopServiceImpl implements ShopService{
+	
+	@Inject
+	private ShopDAO dao;
+
+	@Override
+	public List<QTinfoVO> qtlist() throws Exception {
+		
+		return dao.qtlist();
+	}
+
+}
