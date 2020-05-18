@@ -58,7 +58,7 @@
 		<section id="container">
 			<aside>
 				<ul>
-					<li><a href="">상품 등록</a></li>
+					<li><a href="/shop/list">상품 등록</a></li>
 					<li><a href="">가입자정보</a></li>
 					<li><a href="">전체주문보기</a></li>
 				</ul>

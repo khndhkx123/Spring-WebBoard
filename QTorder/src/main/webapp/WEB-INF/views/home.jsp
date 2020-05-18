@@ -31,7 +31,7 @@
 		</nav>
 		
 		<section id="container">
-			<div id="container_box">본문 영역</div>
+			<div id="container_box">본문영역</div>
 		</section>
 		
 		<footer id="footer">
