@@ -11,6 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from qt_info order by qt_no ASC
 	</select>
 	
+	<select id="cartlist" resultType="com.adullam.domain.CartVO">
+		select * from qt_cart order by cart_no ASC
+	</select>
+	
 	<insert id="addCart">
 		insert into qt_cart(mb_id, qt_no, cart_stock)
 		values(#{mb_id}, #{qt_no}, #{cart_stock})

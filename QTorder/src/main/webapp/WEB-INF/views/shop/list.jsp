@@ -17,9 +17,31 @@
 <script>
 	$(document).ready(function(){
 		$('.addCart').on('click', function(){
-			//$("#sbox").val(); // 선택박스에서 선택된 값
-			//var stock = $('#onum').val(); // 수량박스에서 값 가져오기
-			location.href='/';
+			var qt_no = $("#sbox").val();
+			var cart_stock = $(".onum").val();
+
+			console.log("qt_no : " + qt_no);
+			console.log("cart_stock : " + cart_stock);
+			
+			var data = {
+					qt_no : qt_no
+					cart_stock : cart_stock
+					};
+
+			$.ajax({
+				url : "/shop/list/addCart",
+				type : "post",
+				data : data,
+
+				success : function(){
+					alert("장바구니 담기 성공");
+					$(".onum").val("1");
+					},
+				error : function(){
+					alert("장바구니 담기 실패");
+					$(".onum").val("1");
+					}
+				});
 		});
 	});
 </script>
@@ -66,8 +88,8 @@
 		<option value="10">큐티아이_스프링</option>
 	</select>
 	<!-- 장바구니에 넣기 버튼 -->
-	<input type="number" id="onum" name="onum" placeholder="수량입력">
-	<button class="btn btn-primary mb-sm-2 addCart" style="margin-left: 39%;">장바구니에 넣기</button>
+	<input type="number" class="onum" placeholder="수량입력">
+	<button type="button" class="addCart" style="margin-left: 39%;">장바구니에 넣기</button>
 
 </body>
 

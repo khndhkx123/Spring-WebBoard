@@ -20,6 +20,11 @@ public class ShopServiceImpl implements ShopService{
 	public List<QTinfoVO> qtlist() throws Exception {
 		
 		return dao.qtlist();
+	}	
+
+	@Override
+	public List<CartVO> cartlist() throws Exception {
+		return dao.cartlist();
 	}
 
 	@Override

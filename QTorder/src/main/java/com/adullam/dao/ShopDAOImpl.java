@@ -24,6 +24,11 @@ public class ShopDAOImpl implements ShopDAO{
 	}
 
 	@Override
+	public List<CartVO> cartlist() throws Exception {
+		return sql.selectList(namespace + ".cartlist");
+	}
+
+	@Override
 	public void addCart(CartVO cart) throws Exception {
 		sql.insert(namespace + ".addCart", cart);
 	}

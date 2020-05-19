@@ -35,8 +35,17 @@ public class ShopController {
 		model.addAttribute("list", list);
 	}
 	
+	@RequestMapping(value="/cartlist", method = RequestMethod.GET)
+	public void getcartList(Model model) throws Exception{
+		logger.info("GET : CARTLIST");
+		
+		List<CartVO> cartlist = service.cartlist();
+		
+		model.addAttribute("cartlist", cartlist);
+	}
+	
 	@ResponseBody
-	@RequestMapping(value="/addCart", method = RequestMethod.POST)
+	@RequestMapping(value="/list/addCart", method = RequestMethod.POST)
 	public void addCart(CartVO cart, HttpSession session) throws Exception{
 		logger.info("POST : ADDCART");
 		
