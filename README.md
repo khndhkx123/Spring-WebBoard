@@ -1,4 +1,5 @@
 
+
 # Spring-WebBoard
 
 JAVA-Spring WebBoard
@@ -71,3 +72,10 @@ normal user can directly access admin page using url**
 >**2020.05.16 : [ISSUE] second admin & admin are same**
 mb_ident value : (0 : admin, 1 : second admin, 2 : normal user)
 currently second admin can assess  /admin/index because : AdminInterceptor Line 19
+
+>**2020.05.19 : [ISSUE] signup same ID**
+currently signing up with same id doesn't make any problem. Need to be fix
+
+>**2020.05.19 : [ISSUE] CartList showing with specific user BUG**
+BUG at : ShopMapper.xml - query Line 18 where qc.mb_id = #{mb.id} 
+mb_id not being set so can't find any joined table to return. resultType was fine.
