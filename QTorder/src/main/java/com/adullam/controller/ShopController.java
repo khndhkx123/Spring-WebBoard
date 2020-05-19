@@ -45,7 +45,7 @@ public class ShopController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/list/addCart", method = RequestMethod.POST)
+	@RequestMapping(value="/addCart", method = RequestMethod.POST)
 	public void addCart(CartVO cart, HttpSession session) throws Exception{
 		logger.info("POST : ADDCART");
 		

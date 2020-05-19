@@ -19,27 +19,22 @@
 		$('.addCart').on('click', function(){
 			var qt_no = $("#sbox").val();
 			var cart_stock = $(".onum").val();
-
-			console.log("qt_no : " + qt_no);
-			console.log("cart_stock : " + cart_stock);
 			
 			var data = {
-					qt_no : qt_no
-					cart_stock : cart_stock
+					qt_no : qt_no,
+					cart_stock : cart_stock,
 					};
 
 			$.ajax({
-				url : "/shop/list/addCart",
+				url : "/shop/addCart",
 				type : "post",
 				data : data,
 
 				success : function(){
 					alert("장바구니 담기 성공");
-					$(".onum").val("1");
 					},
 				error : function(){
 					alert("장바구니 담기 실패");
-					$(".onum").val("1");
 					}
 				});
 		});
@@ -57,18 +52,18 @@
 	<table class="table text-center"><!-- 작성된 내용(글) 이 모두 중앙으로 정렬 -->
 		<thead class="table-dark"><!-- 테이블의 색갈을 다크로 지정한다. -->
 			<tr>
-				<td>상품번호</td>
+				<td>주문번호</td>
 				<td>상품정보</td>
 				<td>상품가격</td>
 			</tr>
 		</thead>
 
 		<tbody><!-- 지금은 list 로 잘되는지 확인했지만 앞으로는 로그인 했던 사람의 장바구니를 실시간으로 보여줄 계획 -->
-			<c:forEach items="${list }" var="list">
+			<c:forEach items="${cartlist }" var="cartlist">
 				<tr>
-					<td>${list.qt_no }</td>
-					<td>${list.qt_name }</td>
-					<td>${list.qt_price }</td>
+					<td>${cartlist.cart_no }</td>
+					<td>${cartlist.mb_id }</td>
+					<td>${cartlist.cart_stock }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
