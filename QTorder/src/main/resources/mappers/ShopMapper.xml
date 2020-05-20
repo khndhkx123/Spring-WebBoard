@@ -11,8 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from qt_info order by qt_no ASC
 	</select>
 	
-	<select id="cartlist" resultType="com.adullam.domain.CartVO">
-		select * from qt_cart order by cart_no ASC
+	<select id="cartlist" resultType="com.adullam.domain.CartListVO">
+		select mb_name, qt_name, cart_stock, qt_price*cart_stock
+		from qt_cart as qc join qt_info as qi on qi.qt_no = qc.qt_no
+		join adullam_member as am on am.mb_id = qc.mb_id
+		where qc.mb_id = 'khndhkx123'
 	</select>
 	
 	<insert id="addCart">

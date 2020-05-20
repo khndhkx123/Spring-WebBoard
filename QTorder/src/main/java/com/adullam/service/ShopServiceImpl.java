@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.adullam.dao.ShopDAO;
+import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
 import com.adullam.domain.QTinfoVO;
 
@@ -23,7 +24,7 @@ public class ShopServiceImpl implements ShopService{
 	}	
 
 	@Override
-	public List<CartVO> cartlist() throws Exception {
+	public List<CartListVO> cartlist() throws Exception {
 		return dao.cartlist();
 	}
 

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
 import com.adullam.domain.QTinfoVO;
 
@@ -24,7 +25,7 @@ public class ShopDAOImpl implements ShopDAO{
 	}
 
 	@Override
-	public List<CartVO> cartlist() throws Exception {
+	public List<CartListVO> cartlist() throws Exception {
 		return sql.selectList(namespace + ".cartlist");
 	}
 

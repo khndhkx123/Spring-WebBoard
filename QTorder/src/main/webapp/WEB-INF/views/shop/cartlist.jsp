@@ -52,18 +52,20 @@
 	<table class="table text-center"><!-- 작성된 내용(글) 이 모두 중앙으로 정렬 -->
 		<thead class="table-dark"><!-- 테이블의 색갈을 다크로 지정한다. -->
 			<tr>
-				<td>주문번호</td>
-				<td>상품정보</td>
-				<td>상품가격</td>
+				<td>주문자</td>
+				<td>주문상품</td>
+				<td>상품수량</td>
+				<td>가격</td>
 			</tr>
 		</thead>
 
 		<tbody><!-- 지금은 list 로 잘되는지 확인했지만 앞으로는 로그인 했던 사람의 장바구니를 실시간으로 보여줄 계획 -->
 			<c:forEach items="${cartlist }" var="cartlist">
 				<tr>
-					<td>${cartlist.cart_no }</td>
-					<td>${cartlist.mb_id }</td>
+					<td>${cartlist.mb_name }</td>
+					<td>${cartlist.qt_name }</td>
 					<td>${cartlist.cart_stock }</td>
+					<td>${cartlist.total_price }</td>
 				</tr>
 			</c:forEach>
 		</tbody>

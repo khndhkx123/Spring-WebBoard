@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
 import com.adullam.domain.MemberVO;
 import com.adullam.domain.QTinfoVO;
@@ -39,7 +40,7 @@ public class ShopController {
 	public void getcartList(Model model) throws Exception{
 		logger.info("GET : CARTLIST");
 		
-		List<CartVO> cartlist = service.cartlist();
+		List<CartListVO> cartlist = service.cartlist();
 		
 		model.addAttribute("cartlist", cartlist);
 	}
