@@ -79,3 +79,5 @@ currently signing up with same id doesn't make any problem. Need to be fix
 >**2020.05.19 : [ISSUE] CartList showing with specific user BUG**
 BUG at : ShopMapper.xml - query Line 18 where qc.mb_id = #{mb.id} 
 mb_id not being set so can't find any joined table to return. resultType was fine.
+
+ISSUE FIXED BY COMMIT : f3f80d1 : Specific information had been comment.
