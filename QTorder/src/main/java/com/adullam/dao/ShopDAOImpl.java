@@ -25,8 +25,8 @@ public class ShopDAOImpl implements ShopDAO{
 	}
 
 	@Override
-	public List<CartListVO> cartlist() throws Exception {
-		return sql.selectList(namespace + ".cartlist");
+	public List<CartListVO> cartlist(String mb_id) throws Exception {
+		return sql.selectList(namespace + ".cartlist", mb_id);
 	}
 
 	@Override

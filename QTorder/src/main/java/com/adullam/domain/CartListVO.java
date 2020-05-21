@@ -6,7 +6,7 @@ public class CartListVO {
 	private String mb_name;
 	private String qt_name;
 	private int cart_stock;
-	private int total_price;
+	private int qt_price;
 
 	public String getMb_name() {
 		return mb_name;
@@ -32,12 +32,12 @@ public class CartListVO {
 		this.cart_stock = cart_stock;
 	}
 
-	public int getTotal_price() {
-		return total_price;
+	public int getQt_price() {
+		return qt_price;
 	}
 
-	public void setTotal_price(int total_price) {
-		this.total_price = total_price;
+	public void setQt_price(int qt_price) {
+		this.qt_price = qt_price;
 	}
 	
 }

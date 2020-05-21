@@ -60,12 +60,12 @@
 		</thead>
 
 		<tbody><!-- 지금은 list 로 잘되는지 확인했지만 앞으로는 로그인 했던 사람의 장바구니를 실시간으로 보여줄 계획 -->
-			<c:forEach items="${cartlist }" var="cartlist">
+			<c:forEach items="${cartlist}" var="cartlist">
 				<tr>
-					<td>${cartlist.mb_name }</td>
-					<td>${cartlist.qt_name }</td>
-					<td>${cartlist.cart_stock }</td>
-					<td>${cartlist.total_price }</td>
+					<td>${cartlist.mb_name}</td>
+					<td>${cartlist.qt_name}</td>
+					<td>${cartlist.cart_stock}</td>
+					<td>${cartlist.qt_price * cartlist.cart_stock}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

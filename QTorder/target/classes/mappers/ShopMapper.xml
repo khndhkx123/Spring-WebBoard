@@ -12,10 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="cartlist" resultType="com.adullam.domain.CartListVO">
-		select mb_name, qt_name, cart_stock, qt_price*cart_stock
+		select mb_name, qt_name, cart_stock, qt_price
 		from qt_cart as qc join qt_info as qi on qi.qt_no = qc.qt_no
 		join adullam_member as am on am.mb_id = qc.mb_id
-		where qc.mb_id = 'khndhkx123'
+		where qc.mb_id = #{mb_id}
 	</select>
 	
 	<insert id="addCart">

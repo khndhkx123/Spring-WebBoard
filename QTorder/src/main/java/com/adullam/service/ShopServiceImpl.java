@@ -24,8 +24,8 @@ public class ShopServiceImpl implements ShopService{
 	}	
 
 	@Override
-	public List<CartListVO> cartlist() throws Exception {
-		return dao.cartlist();
+	public List<CartListVO> cartlist(String mb_id) throws Exception {
+		return dao.cartlist(mb_id);
 	}
 
 	@Override

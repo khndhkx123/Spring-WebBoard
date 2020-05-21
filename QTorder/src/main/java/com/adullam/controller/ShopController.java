@@ -37,10 +37,13 @@ public class ShopController {
 	}
 	
 	@RequestMapping(value="/cartlist", method = RequestMethod.GET)
-	public void getcartList(Model model) throws Exception{
+	public void getcartList(Model model, HttpSession session) throws Exception{
 		logger.info("GET : CARTLIST");
 		
-		List<CartListVO> cartlist = service.cartlist();
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String mb_id = member.getMb_id();
+		
+		List<CartListVO> cartlist = service.cartlist(mb_id);
 		
 		model.addAttribute("cartlist", cartlist);
 	}
