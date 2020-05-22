@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,8 +10,8 @@
 <title>주문 게시판 리스트</title>
 
 <!-- !!!!! EXTERNAL CSS !!!!! -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- !!!!! EXTERNAL CSS !!!!! -->
 
@@ -32,9 +33,11 @@
 
 				success : function(){
 					alert("장바구니 담기 성공");
+					window.location = '/shop/cartlist';
 					},
 				error : function(){
 					alert("장바구니 담기 실패");
+					window.location = '/shop/cartlist';
 					}
 				});
 		});
@@ -60,14 +63,22 @@
 		</thead>
 
 		<tbody><!-- 지금은 list 로 잘되는지 확인했지만 앞으로는 로그인 했던 사람의 장바구니를 실시간으로 보여줄 계획 -->
+			<c:set var="sum" value = "0"/>
 			<c:forEach items="${cartlist}" var="cartlist">
 				<tr>
 					<td>${cartlist.mb_name}</td>
 					<td>${cartlist.qt_name}</td>
 					<td>${cartlist.cart_stock}</td>
-					<td>${cartlist.qt_price * cartlist.cart_stock}</td>
+					<td><fmt:formatNumber pattern="###,###,###" value="${cartlist.qt_price * cartlist.cart_stock}" /> 원</td>
 				</tr>
+				<c:set var="sum" value="${sum + (cartlist.qt_price * cartlist.cart_stock)}"/>
 			</c:forEach>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>총 주문금액 : </td>
+				<td><fmt:formatNumber pattern="###,###,###" value="${sum}" /> 원</td>
+			</tr>
 		</tbody>
 	</table>
 	
