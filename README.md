@@ -1,6 +1,7 @@
 
 
 
+
 # Spring-WebBoard
 
 JAVA-Spring WebBoard
@@ -84,3 +85,6 @@ currently signing up with same id doesn't make any problem. Need to be fix
 BUG at : ShopMapper.xml - query Line 18 where qc.mb_id = #{mb.id} 
 mb_id not being set so can't find any joined table to return. resultType was fine.
 *** ISSUE FIXED BY COMMIT : f3f80d1 : Specific information had been comment.***
+
+>**2020.05.23 : [ISSUE] Delect Cart**
+delete cart doesn't work because of @RequestParam, button-data (cartlist.jsp Line:90)
