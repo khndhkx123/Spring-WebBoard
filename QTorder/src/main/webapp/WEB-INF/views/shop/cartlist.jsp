@@ -87,7 +87,7 @@
 					<td>${cartlist.qt_name}</td>
 					<td>${cartlist.cart_stock}</td>
 					<td><fmt:formatNumber pattern="###,###,###" value="${cartlist.qt_price * cartlist.cart_stock}" /> 원</td>
-					<td><button type="button" class="deleteCart" data-cart_no="${cartlist.cart_no}">삭제</button></td>
+					<td><button type="button" class="deleteCart" data="${cartlist.cart_no}">삭제</button></td>
 				</tr>
 				<c:set var="sum" value="${sum + (cartlist.qt_price * cartlist.cart_stock)}"/>
 			</c:forEach>

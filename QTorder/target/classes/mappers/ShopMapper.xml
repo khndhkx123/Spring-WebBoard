@@ -22,5 +22,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into qt_cart(mb_id, qt_no, cart_stock)
 		values(#{mb_id}, #{qt_no}, #{cart_stock})
 	</insert>
+	
+	<delete id="deleteCart">
+		delete from qt_cart
+		where cart_no = #{cart_no} and mb_id = #{mb_id}
+	</delete>
 
 </mapper>

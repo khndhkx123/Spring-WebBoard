@@ -12,16 +12,15 @@ import com.adullam.domain.CartVO;
 import com.adullam.domain.QTinfoVO;
 
 @Service
-public class ShopServiceImpl implements ShopService{
-	
+public class ShopServiceImpl implements ShopService {
+
 	@Inject
 	private ShopDAO dao;
 
 	@Override
 	public List<QTinfoVO> qtlist() throws Exception {
-		
 		return dao.qtlist();
-	}	
+	}
 
 	@Override
 	public List<CartListVO> cartlist(String mb_id) throws Exception {
@@ -32,5 +31,9 @@ public class ShopServiceImpl implements ShopService{
 	public void addCart(CartVO cart) throws Exception {
 		dao.addCart(cart);
 	}
-	
+
+	@Override
+	public void deleteCart(CartVO cart) throws Exception {
+		dao.deleteCart(cart);
+	}
 }

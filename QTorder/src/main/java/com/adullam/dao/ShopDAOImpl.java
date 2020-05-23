@@ -12,11 +12,11 @@ import com.adullam.domain.CartVO;
 import com.adullam.domain.QTinfoVO;
 
 @Repository
-public class ShopDAOImpl implements ShopDAO{
-	
+public class ShopDAOImpl implements ShopDAO {
+
 	@Inject
 	private SqlSession sql;
-	
+
 	private static String namespace = "com.adullam.mappers.ShopMapper";
 
 	@Override
@@ -33,4 +33,10 @@ public class ShopDAOImpl implements ShopDAO{
 	public void addCart(CartVO cart) throws Exception {
 		sql.insert(namespace + ".addCart", cart);
 	}
+
+	@Override
+	public void deleteCart(CartVO cart) throws Exception {
+		sql.delete(namespace + ".deleteCart", cart);
+	}
+
 }

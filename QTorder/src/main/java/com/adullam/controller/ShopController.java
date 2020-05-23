@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.adullam.domain.CartListVO;
@@ -57,6 +58,18 @@ public class ShopController {
 		cart.setMb_id(member.getMb_id());
 		
 		service.addCart(cart);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/deleteCart", method = RequestMethod.POST)
+	public void deleteCart(@RequestParam("check_cart_no") int cart_no, CartVO cart, HttpSession session) throws Exception{
+		logger.info("POST : DELETECART");
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		cart.setMb_id(member.getMb_id());
+		cart.setCart_no(cart_no);
+		
+		service.deleteCart(cart);
 	}
 
 }
