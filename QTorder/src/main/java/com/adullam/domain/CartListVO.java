@@ -3,10 +3,19 @@ package com.adullam.domain;
 //FOR members personal cartList : join of qt_cart + qt_info + adullam_member
 public class CartListVO {
 
+	private int cart_no;
 	private String mb_name;
 	private String qt_name;
 	private int cart_stock;
 	private int qt_price;
+
+	public int getCart_no() {
+		return cart_no;
+	}
+
+	public void setCart_no(int cart_no) {
+		this.cart_no = cart_no;
+	}
 
 	public String getMb_name() {
 		return mb_name;
@@ -39,5 +48,5 @@ public class CartListVO {
 	public void setQt_price(int qt_price) {
 		this.qt_price = qt_price;
 	}
-	
+
 }

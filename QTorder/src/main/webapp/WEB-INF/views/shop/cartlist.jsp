@@ -41,6 +41,22 @@
 					}
 				});
 		});
+
+		$('.deleteCart').on('click', function(){
+			var confirm_val = confirm("장바구니에서 삭제하시겠습니까 ?");
+			if(confirm_val){
+				var check_cart_no = $(this).attr("data-cart_no");
+				}
+			$.ajax({
+				url : "/shop/deleteCart",
+				type : "post",
+				data : check_cart_no,
+				
+				success : function(){
+					location.href = "/shop/cartlist";
+				}
+			});
+		})
 	});
 </script>
 
@@ -59,6 +75,7 @@
 				<td>주문상품</td>
 				<td>상품수량</td>
 				<td>가격</td>
+				<td>삭제</td>
 			</tr>
 		</thead>
 
@@ -70,6 +87,7 @@
 					<td>${cartlist.qt_name}</td>
 					<td>${cartlist.cart_stock}</td>
 					<td><fmt:formatNumber pattern="###,###,###" value="${cartlist.qt_price * cartlist.cart_stock}" /> 원</td>
+					<td><button type="button" class="deleteCart" data-cart_no="${cartlist.cart_no}">삭제</button></td>
 				</tr>
 				<c:set var="sum" value="${sum + (cartlist.qt_price * cartlist.cart_stock)}"/>
 			</c:forEach>
