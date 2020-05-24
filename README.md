@@ -75,18 +75,20 @@ normal user can directly access admin page using url**
 >**Simple ERD :**
 >![QTorder_ERD](https://user-images.githubusercontent.com/26129338/82665013-df4daf00-9c6d-11ea-9eae-dcec439e7510.JPG)
 
->**2020.05.16 : [ISSUE] second admin & admin are same**
->mb_ident value : (0 : admin, 1 : second admin, 2 : normal user)
->currently second admin can assess  /admin/index because : AdminInterceptor Line 19
+## **Current Progress ISSUE : QTorder**
 
->**2020.05.19 : [ISSUE] signup same ID**
->currently signing up with same id doesn't make any problem. Need to be fix
+**2020.05.16 : [ISSUE] second admin & admin are same**
+mb_ident value : (0 : admin, 1 : second admin, 2 : normal user)
+currently second admin can assess  /admin/index because : AdminInterceptor Line 19
 
->**2020.05.19 : [ISSUE : FIXED (2020.05.21) ] CartList showing with specific user BUG**
->BUG at : ShopMapper.xml - query Line 18 where qc.mb_id = #{mb.id} 
->mb_id not being set so can't find any joined table to return. resultType was fine.
->*** ISSUE FIXED BY COMMIT : f3f80d1 : Specific information had been comment.***
+**2020.05.19 : [ISSUE] signup same ID**
+currently signing up with same id doesn't make any problem. Need to be fix
 
->**2020.05.23 : [ISSUE : FIXED(2020.05.24) ] Delect Cart**
->delete cart doesn't work because of @RequestParam, button-data (cartlist.jsp Line:90)
->*** ISSUE FIXED BY COMMIT : 410b836 : Specific information had been comment.***
+**2020.05.19 : [ISSUE : FIXED (2020.05.21) ] CartList showing with specific user BUG**
+BUG at : ShopMapper.xml - query Line 18 where qc.mb_id = #{mb.id} 
+mb_id not being set so can't find any joined table to return. resultType was fine.
+**ISSUE FIXED BY COMMIT : f3f80d1 : Specific information had been comment.**
+
+**2020.05.23 : [ISSUE : FIXED(2020.05.24) ] Delect Cart**
+delete cart doesn't work because of @RequestParam, button-data (cartlist.jsp Line:90)
+**ISSUE FIXED BY COMMIT : 410b836 : Specific information had been comment.**
