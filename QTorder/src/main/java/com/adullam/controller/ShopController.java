@@ -62,7 +62,7 @@ public class ShopController {
 	
 	@ResponseBody
 	@RequestMapping(value="/deleteCart", method = RequestMethod.POST)
-	public void deleteCart(@RequestParam("check_cart_no") int cart_no, CartVO cart, HttpSession session) throws Exception{
+	public void deleteCart(@RequestParam(value = "cart_no") int cart_no, CartVO cart, HttpSession session) throws Exception{
 		logger.info("POST : DELETECART");
 		
 		MemberVO member = (MemberVO)session.getAttribute("member");

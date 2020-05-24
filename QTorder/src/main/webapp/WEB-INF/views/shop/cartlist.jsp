@@ -45,12 +45,13 @@
 		$('.deleteCart').on('click', function(){
 			var confirm_val = confirm("장바구니에서 삭제하시겠습니까 ?");
 			if(confirm_val){
-				var check_cart_no = $(this).attr("data-cart_no");
+				var cart_no = $(this).attr("value");
 				}
+			console.log('CART_NO : ', cart_no);
 			$.ajax({
 				url : "/shop/deleteCart",
 				type : "post",
-				data : check_cart_no,
+				data : {cart_no : cart_no},
 				
 				success : function(){
 					location.href = "/shop/cartlist";
@@ -87,7 +88,7 @@
 					<td>${cartlist.qt_name}</td>
 					<td>${cartlist.cart_stock}</td>
 					<td><fmt:formatNumber pattern="###,###,###" value="${cartlist.qt_price * cartlist.cart_stock}" /> 원</td>
-					<td><button type="button" class="deleteCart" data="${cartlist.cart_no}">삭제</button></td>
+					<td><button type="button" class="deleteCart" value="${cartlist.cart_no}">삭제</button></td>
 				</tr>
 				<c:set var="sum" value="${sum + (cartlist.qt_price * cartlist.cart_stock)}"/>
 			</c:forEach>
