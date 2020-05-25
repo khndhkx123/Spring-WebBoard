@@ -54,6 +54,7 @@
 				data : {cart_no : cart_no},
 				
 				success : function(){
+					alert("장바구니에서 삭제가 완료되었습니다.");
 					location.href = "/shop/cartlist";
 				}
 			});

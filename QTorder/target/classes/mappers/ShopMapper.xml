@@ -27,5 +27,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from qt_cart
 		where cart_no = #{cart_no} and mb_id = #{mb_id}
 	</delete>
+	
+	<insert id="qtorder">
+		insert into qt_order(mb_name, total_price, o_date)
+		values(#{mb_name}, #{total_price}, now())
+	</insert>
 
 </mapper>
