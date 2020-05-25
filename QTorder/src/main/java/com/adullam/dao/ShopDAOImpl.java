@@ -29,6 +29,11 @@ public class ShopDAOImpl implements ShopDAO {
 	public List<CartListVO> cartlist(String mb_id) throws Exception {
 		return sql.selectList(namespace + ".cartlist", mb_id);
 	}
+	
+	@Override
+	public List<QTorder> qtorderlist() throws Exception {
+		return sql.selectList(namespace + ".qtorderlist");
+	}
 
 	@Override
 	public void addCart(CartVO cart) throws Exception {
@@ -41,8 +46,8 @@ public class ShopDAOImpl implements ShopDAO {
 	}
 
 	@Override
-	public List<QTorder> qtorder() throws Exception {
-		return sql.selectList(namespace + ".qtorder");
+	public void addOrder(QTorder order) throws Exception {
+		sql.insert(namespace + ".addOrder", order);
 	}
 	
 }

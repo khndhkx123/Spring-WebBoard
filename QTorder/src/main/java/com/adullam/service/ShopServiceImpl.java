@@ -27,6 +27,11 @@ public class ShopServiceImpl implements ShopService {
 	public List<CartListVO> cartlist(String mb_id) throws Exception {
 		return dao.cartlist(mb_id);
 	}
+	
+	@Override
+	public List<QTorder> qtorderlist() throws Exception {
+		return dao.qtorderlist();
+	}
 
 	@Override
 	public void addCart(CartVO cart) throws Exception {
@@ -39,8 +44,8 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
-	public List<QTorder> qtorder() throws Exception {
-		return dao.qtorder();
+	public void addOrder(QTorder order) throws Exception {
+		dao.addOrder(order);
 	}
 	
 }

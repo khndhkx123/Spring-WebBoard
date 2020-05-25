@@ -115,9 +115,10 @@
 		<option value="9">큐티아이_일반</option>
 		<option value="10">큐티아이_스프링</option>
 	</select>
-	<!-- 장바구니에 넣기 버튼 -->
+	<!-- 장바구니에 넣기 & 주문넣기 버튼 -->
 	<input type="number" class="onum" placeholder="수량입력">
 	<button type="button" class="addCart" style="margin-left: 39%;">장바구니에 넣기</button>
+	<button type="button" class="addOrder">이대로 주문 넣기</button>
 
 </body>
 
