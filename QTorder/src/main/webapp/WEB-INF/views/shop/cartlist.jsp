@@ -47,7 +47,6 @@
 			if(confirm_val){
 				var cart_no = $(this).attr("value");
 				}
-			console.log('CART_NO : ', cart_no);
 			$.ajax({
 				url : "/shop/deleteCart",
 				type : "post",
@@ -59,6 +58,28 @@
 				}
 			});
 		})
+
+		$('.addOrder').on('click', function(){
+			var confirm_val = confirm("정말 이대로 주문하시겠습니까 ? 주문취소는 어려울 수 있습니다.");
+			if(confirm_val){
+				var total_price = $(this).attr("value");
+			}
+			console.log('TOTAL_PRICE : ', total_price);
+			$.ajax({
+				url : "/shop/addOrder",
+				type : "post",
+				data : {total_price : total_price},
+
+				success : function(){
+					alert("주문이 접수 되었습니다. 기원형제가 확인후 처리하겠습니다 ^^");
+					window.location = '/shop/cartlist';
+					},
+				error : function(){
+					alert("주문 접수 실패 ㅠㅠ. 기원형제에게 연락주세요 ㅠㅠ");
+					window.location = '/shop/cartlist';
+				}
+			});
+		});
 	});
 </script>
 
@@ -83,6 +104,7 @@
 
 		<tbody><!-- 지금은 list 로 잘되는지 확인했지만 앞으로는 로그인 했던 사람의 장바구니를 실시간으로 보여줄 계획 -->
 			<c:set var="sum" value = "0"/>
+			<c:set var="order_name" value = ""/>
 			<c:forEach items="${cartlist}" var="cartlist">
 				<tr>
 					<td>${cartlist.mb_name}</td>
@@ -92,6 +114,7 @@
 					<td><button type="button" class="deleteCart" value="${cartlist.cart_no}">삭제</button></td>
 				</tr>
 				<c:set var="sum" value="${sum + (cartlist.qt_price * cartlist.cart_stock)}"/>
+				<c:set var="order_name" value="${cartlist.mb_name}"/>
 			</c:forEach>
 			<tr>
 				<td></td>
@@ -118,7 +141,7 @@
 	<!-- 장바구니에 넣기 & 주문넣기 버튼 -->
 	<input type="number" class="onum" placeholder="수량입력">
 	<button type="button" class="addCart" style="margin-left: 39%;">장바구니에 넣기</button>
-	<button type="button" class="addOrder">이대로 주문 넣기</button>
+	<button type="button" class="addOrder" value="${sum}">이대로 주문 넣기</button>
 
 </body>
 

@@ -10,7 +10,7 @@ import com.adullam.dao.ShopDAO;
 import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
 import com.adullam.domain.QTinfoVO;
-import com.adullam.domain.QTorder;
+import com.adullam.domain.QTorderVO;
 
 @Service
 public class ShopServiceImpl implements ShopService {
@@ -29,7 +29,7 @@ public class ShopServiceImpl implements ShopService {
 	}
 	
 	@Override
-	public List<QTorder> qtorderlist() throws Exception {
+	public List<QTorderVO> qtorderlist() throws Exception {
 		return dao.qtorderlist();
 	}
 
@@ -44,7 +44,7 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
-	public void addOrder(QTorder order) throws Exception {
+	public void addOrder(QTorderVO order) throws Exception {
 		dao.addOrder(order);
 	}
 	

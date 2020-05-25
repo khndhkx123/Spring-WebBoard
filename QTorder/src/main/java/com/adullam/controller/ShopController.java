@@ -18,6 +18,7 @@ import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
 import com.adullam.domain.MemberVO;
 import com.adullam.domain.QTinfoVO;
+import com.adullam.domain.QTorderVO;
 import com.adullam.service.ShopService;
 
 @Controller
@@ -70,6 +71,18 @@ public class ShopController {
 		cart.setCart_no(cart_no);
 		
 		service.deleteCart(cart);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/addOrder", method = RequestMethod.POST)
+	public void deleteCart(@RequestParam(value = "total_price") int total_price, QTorderVO order, HttpSession session) throws Exception{
+		logger.info("POST : ADDORDER");
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		order.setMb_name(member.getMb_name());
+		order.setTotal_price(total_price);
+		
+		service.addOrder(order);
 	}
 
 }

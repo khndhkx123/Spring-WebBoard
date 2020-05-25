@@ -1,6 +1,6 @@
 package com.adullam.domain;
 
-public class QTorder {
+public class QTorderVO {
 
 	private int order_no;
 	private String mb_name;
