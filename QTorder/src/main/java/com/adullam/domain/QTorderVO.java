@@ -31,11 +31,11 @@ public class QTorderVO {
 		this.total_price = total_price;
 	}
 
-	public String getOdate() {
+	public String getO_date() {
 		return o_date;
 	}
 
-	public void setOdate(String o_date) {
+	public void setO_date(String o_date) {
 		this.o_date = o_date;
 	}
 

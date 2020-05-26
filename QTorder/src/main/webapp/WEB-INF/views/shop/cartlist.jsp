@@ -80,6 +80,8 @@
 				}
 			});
 		});
+
+		$('.orderlist').on('click', function(){ window.location = '/shop/orderlist'; });
 	});
 </script>
 
@@ -142,6 +144,7 @@
 	<input type="number" class="onum" placeholder="수량입력">
 	<button type="button" class="addCart" style="margin-left: 39%;">장바구니에 넣기</button>
 	<button type="button" class="addOrder" value="${sum}">이대로 주문 넣기</button>
+	<button type="button" class="orderlist">주문 현황 보기</button>
 
 </body>
 

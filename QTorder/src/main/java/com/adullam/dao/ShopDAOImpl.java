@@ -31,8 +31,8 @@ public class ShopDAOImpl implements ShopDAO {
 	}
 	
 	@Override
-	public List<QTorderVO> qtorderlist() throws Exception {
-		return sql.selectList(namespace + ".qtorderlist");
+	public List<QTorderVO> orderlist() throws Exception {
+		return sql.selectList(namespace + ".orderlist");
 	}
 
 	@Override

@@ -37,13 +37,12 @@
 		</thead>
 
 		<tbody><!-- 지금은 list 로 잘되는지 확인했지만 앞으로는 로그인 했던 사람의 장바구니를 실시간으로 보여줄 계획 -->
-			<c:set var="sum" value = "0"/>
-			<c:forEach items="${qtorder}" var="qtorder">
+			<c:forEach items="${orderlist}" var="orderlist">
 				<tr>
-					<td>${qtorder.order_no}</td>
-					<td>${qtorder.mb_name}</td>
-					<td>${qtorder.total_price}</td>
-					<td><fmt:formatNumber pattern="###,###,###" value="${qtorder.total_price}" /> 원</td>
+					<td>${orderlist.order_no}</td>
+					<td>${orderlist.mb_name}</td>
+					<td><fmt:formatNumber pattern="###,###,###" value="${orderlist.total_price}" /> 원</td>
+					<td>${orderlist.o_date}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

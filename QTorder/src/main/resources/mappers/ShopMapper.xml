@@ -18,6 +18,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where qc.mb_id = #{mb_id}
 	</select>
 	
+	<select id="orderlist" resultType="com.adullam.domain.QTorderVO">
+		select * from qt_order
+	</select>
+	
 	<insert id="addCart">
 		insert into qt_cart(mb_id, qt_no, cart_stock)
 		values(#{mb_id}, #{qt_no}, #{cart_stock})

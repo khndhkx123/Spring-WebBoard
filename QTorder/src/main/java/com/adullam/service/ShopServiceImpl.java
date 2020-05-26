@@ -29,8 +29,8 @@ public class ShopServiceImpl implements ShopService {
 	}
 	
 	@Override
-	public List<QTorderVO> qtorderlist() throws Exception {
-		return dao.qtorderlist();
+	public List<QTorderVO> orderlist() throws Exception {
+		return dao.orderlist();
 	}
 
 	@Override

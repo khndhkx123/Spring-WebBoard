@@ -11,7 +11,7 @@ public interface ShopService {
 	
 	public List<QTinfoVO> qtlist() throws Exception;
 	public List<CartListVO> cartlist(String mb_id) throws Exception;
-	public List<QTorderVO> qtorderlist() throws Exception;
+	public List<QTorderVO> orderlist() throws Exception;
 	public void addCart(CartVO cart) throws Exception;
 	public void deleteCart(CartVO cart) throws Exception;
 	public void addOrder(QTorderVO order) throws Exception;

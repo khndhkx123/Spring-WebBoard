@@ -50,6 +50,16 @@ public class ShopController {
 		model.addAttribute("cartlist", cartlist);
 	}
 	
+	@RequestMapping(value="/orderlist", method = RequestMethod.GET)
+	public void getorderList(Model model, HttpSession session) throws Exception{
+		logger.info("GET : ORDERLIST");
+		
+		List<QTorderVO> orderlist = service.orderlist();
+		
+		model.addAttribute("orderlist", orderlist);
+	}
+	
+	
 	@ResponseBody
 	@RequestMapping(value="/addCart", method = RequestMethod.POST)
 	public void addCart(CartVO cart, HttpSession session) throws Exception{
