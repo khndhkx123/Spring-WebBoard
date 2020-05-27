@@ -16,6 +16,30 @@
 <!-- !!!!! EXTERNAL CSS !!!!! -->
 
 <script>
+/*
+	$(document).ready(function() {
+		$('.deleteOrder').on('click', function() {
+			var confirm_val = confirm("주문을 삭제하시겠습니까?");
+			if(confirm_val){
+				var cart_no = $(this).attr("value");
+			}
+			$.ajax({
+				url : "/shop/deleteorder",
+				type : "post",
+				data : {cart_no : cart_no}
+
+				success : function() {
+					alert("장바구니 담기 성공");
+					window.location = '/shop/cartlist';
+				},
+				error : function() {
+					alert("장바구니 담기 실패");
+					window.location = '/shop/cartlist';
+				}
+			});
+		});
+	});
+	*/
 </script>
 
 </head>
@@ -43,6 +67,7 @@
 					<td>${orderlist.mb_name}</td>
 					<td><fmt:formatNumber pattern="###,###,###" value="${orderlist.total_price}" /> 원</td>
 					<td>${orderlist.o_date}</td>
+					<!-- <td><button type="button" class="deleteOrder" value="${orderlist.order_no}">삭제</button></td> -->
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -64,7 +64,6 @@
 			if(confirm_val){
 				var total_price = $(this).attr("value");
 			}
-			console.log('TOTAL_PRICE : ', total_price);
 			$.ajax({
 				url : "/shop/addOrder",
 				type : "post",

@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
 import com.adullam.domain.MemberVO;
-import com.adullam.domain.QTinfoVO;
 import com.adullam.domain.QTorderVO;
 import com.adullam.service.ShopService;
 
@@ -28,15 +27,6 @@ public class ShopController {
 	
 	@Inject
 	ShopService service;
-	
-	@RequestMapping(value="/list", method = RequestMethod.GET)
-	public void getqtList(Model model) throws Exception{
-		logger.info("GET : GETLIST");
-		
-		List<QTinfoVO> list = service.qtlist();
-		
-		model.addAttribute("list", list);
-	}
 	
 	@RequestMapping(value="/cartlist", method = RequestMethod.GET)
 	public void getcartList(Model model, HttpSession session) throws Exception{
