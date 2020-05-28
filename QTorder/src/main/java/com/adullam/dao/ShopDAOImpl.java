@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
+import com.adullam.domain.OrderCountVO;
 import com.adullam.domain.QTinfoVO;
 import com.adullam.domain.QTorderVO;
 
@@ -33,6 +34,11 @@ public class ShopDAOImpl implements ShopDAO {
 	@Override
 	public List<QTorderVO> orderlist() throws Exception {
 		return sql.selectList(namespace + ".orderlist");
+	}
+	
+	@Override
+	public List<OrderCountVO> ordercount() throws Exception {
+		return sql.selectList(namespace + ".ordercount");
 	}
 
 	@Override

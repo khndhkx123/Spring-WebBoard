@@ -44,13 +44,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	 -->
 	 
-	 <!-- 
-	 get total order
-	 
-	select A.qt_no, A.cart_stock, cart_stock * qt_price as qt_price
-	from (select qt_no, SUM(cart_stock) as cart_stock from qt_cart group by qt_no) A, qt_info B
-    where A.qt_no = B.qt_no;
-    
-	  -->
+	 <select id="ordercount" resultType="com.adullam.domain.OrderCountVO">
+	 	select A.qt_no, B.qt_name, A.cart_stock as quantity, cart_stock * qt_price as total_price
+	 	from (select qt_no, SUM(cart_stock) as cart_stock from qt_cart group by qt_no) A, qt_info B
+	 	where A.qt_no = B.qt_no;
+	 </select>
 
 </mapper>

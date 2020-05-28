@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.adullam.dao.ShopDAO;
 import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
+import com.adullam.domain.OrderCountVO;
 import com.adullam.domain.QTinfoVO;
 import com.adullam.domain.QTorderVO;
 
@@ -27,10 +28,15 @@ public class ShopServiceImpl implements ShopService {
 	public List<CartListVO> cartlist(String mb_id) throws Exception {
 		return dao.cartlist(mb_id);
 	}
-	
+
 	@Override
 	public List<QTorderVO> orderlist() throws Exception {
 		return dao.orderlist();
+	}
+
+	@Override
+	public List<OrderCountVO> ordercount() throws Exception {
+		return dao.ordercount();
 	}
 
 	@Override
@@ -47,5 +53,5 @@ public class ShopServiceImpl implements ShopService {
 	public void addOrder(QTorderVO order) throws Exception {
 		dao.addOrder(order);
 	}
-	
+
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.adullam.domain.CartListVO;
 import com.adullam.domain.CartVO;
 import com.adullam.domain.MemberVO;
+import com.adullam.domain.OrderCountVO;
 import com.adullam.domain.QTorderVO;
 import com.adullam.service.ShopService;
 
@@ -47,6 +48,15 @@ public class ShopController {
 		List<QTorderVO> orderlist = service.orderlist();
 		
 		model.addAttribute("orderlist", orderlist);
+	}
+	
+	@RequestMapping(value="/ordercount", method = RequestMethod.GET)
+	public void getcountorder(Model model) throws Exception{
+		logger.info("GET : ORDERCOUNT");
+		
+		List<OrderCountVO> ordercount = service.ordercount();
+		
+		model.addAttribute("ordercount", ordercount);
 	}
 	
 	
