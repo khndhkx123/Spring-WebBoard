@@ -6,8 +6,8 @@
 # Spring-WebBoard : Spring Legacy Project with Mybatis
 
 # JAVA-Spring WebBoard : 
-# QT_order Project is done and convert to spring-boot project using JPA
-# This repository project is done by May, 13th 2020.
+QT_order Project is done and convert to spring-boot project using JPA
+# This repository project is done by May,30-2020.
 
 ## **Website**
 
